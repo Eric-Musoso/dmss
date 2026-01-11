@@ -1,0 +1,5 @@
+{
+  "name": "DataNexus",
+  "description": "Unified data operations platform with ETL pipelines, orchestration, and visualization for geospatial and non-geospatial data.",
+  "requestFramePermissions": []
+}

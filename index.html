@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DMSS | Decision Making Support System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/reactflow@11.10.1/dist/style.css" rel="stylesheet" />
+    <style>
+      /* Custom Scrollbar for dark green theme */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #022c22; /* emerald-950 */
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #065f46; /* emerald-800 */
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #10b981; /* emerald-500 */
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .glass-panel {
+        background: rgba(6, 78, 59, 0.3);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(52, 211, 153, 0.1);
+      }
+      
+      /* Orbit Animations */
+      @keyframes spin-cw {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      @keyframes spin-ccw {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+      
+      .orbit-cw {
+        animation: spin-cw 60s linear infinite;
+      }
+      .orbit-ccw {
+        animation: spin-ccw 50s linear infinite;
+      }
+
+      /* Counter-rotations to keep children upright */
+      .counter-rot-cw {
+        animation: spin-ccw 60s linear infinite;
+      }
+      .counter-rot-ccw {
+        animation: spin-cw 50s linear infinite;
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Marquee Animation */
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 30s linear infinite;
+      }
+      
+      /* Pausing animations on hover for accessibility/UX */
+      .hover-pause:hover {
+        animation-play-state: paused;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@tanstack/react-query": "https://esm.sh/@tanstack/react-query@^5.90.16",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "zustand": "https://esm.sh/zustand@^5.0.9",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "reactflow": "https://esm.sh/reactflow@^11.11.4",
+    "maplibre-gl": "https://esm.sh/maplibre-gl@^5.15.0",
+    "pg": "https://esm.sh/pg@^8.16.3",
+    "redis": "https://esm.sh/redis@^5.10.0",
+    "dotenv": "https://esm.sh/dotenv@^17.2.3",
+    "express": "https://esm.sh/express@^5.2.1",
+    "jsonwebtoken": "https://esm.sh/jsonwebtoken@^9.0.3",
+    "zod": "https://esm.sh/zod@^4.3.5",
+    "bcrypt": "https://esm.sh/bcrypt@^6.0.0",
+    "cors": "https://esm.sh/cors@^2.8.5",
+    "helmet": "https://esm.sh/helmet@^8.1.0",
+    "morgan": "https://esm.sh/morgan@^1.10.1",
+    "express-rate-limit": "https://esm.sh/express-rate-limit@^8.2.1",
+    "axios": "https://esm.sh/axios@^1.13.2",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#020617] text-slate-100 antialiased selection:bg-emerald-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
